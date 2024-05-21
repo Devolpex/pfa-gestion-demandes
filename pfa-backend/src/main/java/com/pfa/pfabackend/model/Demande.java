@@ -31,7 +31,7 @@ public class Demande {
     private long id;
     private String description;
     private Date date;
-
+    private String notif;
     @Enumerated(EnumType.STRING)
     private DemandeStatus status;
     
