@@ -78,7 +78,7 @@ public class AuthController {
                 .build();
         AuthResponse response = authService.register(user);
         response.setSuccess("Registration successful");
-        response.setRedirectTo("/profile");
+        response.setRedirectTo("/my-demandes");
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
@@ -100,7 +100,7 @@ public class AuthController {
                 var jwtToken = jwtService.generateToken(user);
                 String redirectTo = new String();
                 if (user.getRole() == Role.CLIENT) {
-                    redirectTo = "/profile";
+                    redirectTo = "/my-demandes";
                 }
                 if (user.getRole() == Role.ADMIN) {
                     redirectTo = "/clients";
