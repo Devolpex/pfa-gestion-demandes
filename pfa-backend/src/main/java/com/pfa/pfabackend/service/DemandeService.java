@@ -73,6 +73,10 @@ public class DemandeService {
         }
     }
 
+    public Page<DemandeDto> searchDemandes(String search, Pageable pageable) {
+        Page<Demande> demandes = demandeRepository.searchDemandes(search, pageable);
+        return demandes.map(this::convertToDTO);
+    }
 
    public DemandeDto findDemandeById(long id){
        Demande demande = demandeRepository.findById(id).orElse(null);
